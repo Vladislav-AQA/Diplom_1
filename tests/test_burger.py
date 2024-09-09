@@ -1,4 +1,4 @@
-import data
+from helpers import data
 from praktikum.bun import Bun
 from praktikum.burger import Burger
 from praktikum.ingredient import Ingredient
@@ -40,7 +40,7 @@ class TestBurger:
         burger.set_buns(data.mock_bun)
         burger.add_ingredient(data.mock_filling)
         burger.add_ingredient(data.mock_sauce)
-        burger_price = data.mock_bun.get_price() + data.mock_filling.get_price() + data.mock_sauce.get_price()
+        burger_price = data.mock_bun.get_price() * 2 + data.mock_filling.get_price() + data.mock_sauce.get_price()
 
         assert burger.get_price() == burger_price
 
@@ -51,10 +51,10 @@ class TestBurger:
         burger.add_ingredient(data.mock_sauce)
         burger_receipt = (
             f"(==== {data.mock_bun.get_name()} ====)\n"
-            f"= {data.mock_filling_f.get_type().lower()} {data.mock_filling.get_name()} =\n"
+            f"= {data.mock_filling.get_type().lower()} {data.mock_filling.get_name()} =\n"
             f"= {data.mock_sauce.get_type().lower()} {data.mock_sauce.get_name()} =\n"
             f"(==== {data.mock_bun.get_name()} ====)\n\n"
-            f"Price: {data.mock_bun.get_price() + data.mock_filling.get_price() + data.mock_sauce.get_price()}"
+            f"Price: {data.mock_bun.get_price() * 2 + data.mock_filling.get_price() + data.mock_sauce.get_price()}"
         )
 
         assert burger.get_receipt() == burger_receipt

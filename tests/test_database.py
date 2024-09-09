@@ -20,5 +20,5 @@ class TestDataBase:
     def test_available_ingredients(self,  number, name, price):
         database = Database()
 
-        assert len(database.available_ingredients()) == 2
+        assert len(database.available_ingredients()) == 6
 
